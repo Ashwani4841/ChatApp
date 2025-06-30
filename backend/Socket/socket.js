@@ -20,7 +20,8 @@ const userSocketmap={}; //{userId,socketId}
 io.on('connection',(socket)=>{
     const userId = socket.handshake.query.userId;
 
-    if(userId !== "undefine") userSocketmap[userId] = socket.id;
+    // if(userId !== "undefine") userSocketmap[userId] = socket.id;
+    if (userId) userSocketmap[userId] = socket.id;
     io.emit("getOnlineUsers",Object.keys(userSocketmap))
 
     socket.on('disconnect',()=>{
