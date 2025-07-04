@@ -128,7 +128,7 @@ const Sidebar = ({ onSelectUser }) => {
                         value={searchInput}
                         onChange={(e) => setSearchInput(e.target.value)}
                         type='text'
-                        className='px-4 w-auto bg-transparent outline-none rounded-full'
+                        className='px-4 w-auto bg-transparent outline-none rounded-full text-black'
                         placeholder='search user'
                     />
                     <button className='btn btn-circle bg-sky-700 hover:bg-gray-950'>

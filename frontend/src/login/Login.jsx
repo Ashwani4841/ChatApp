@@ -46,7 +46,7 @@ const Login = () => {
           bg-gray-400 bg-clip-padding
            backderop-filter backdrop-blur-lg bg-opacity-0'>
                 <h1 className='text-3xl font-bold text-center text-gray-300'>Login
-                    <span className='text-gray-950'> Chatters </span>
+                    <span className='text-gray-950'> TackSync </span>
                     </h1>
                     <form onSubmit={handelSubmit} className='flex flex-col text-black'>
                         <div>
@@ -59,7 +59,7 @@ const Login = () => {
                                 onChange={handelInput}
                                 placeholder='Enter your email'
                                 required
-                                className='w-full input input-bordered h-10' />
+                                className='w-full input input-bordered h-10 text-white'/>
                         </div>
                         <div>
                             <label className='label p-2' >
@@ -71,7 +71,7 @@ const Login = () => {
                                 onChange={handelInput}
                                 placeholder='Enter your password'
                                 required
-                                className='w-full input input-bordered h-10' />
+                                className='w-full input input-bordered h-10 text-white' />
                         </div>
                         <button type='submit'
                             className='mt-4 self-center 
@@ -83,13 +83,13 @@ const Login = () => {
                     </form>
                     <div className='pt-2'>
                         <p className='text-sm font-semibold
-                         text-gray-800'>
+                         text-slate-950'>
                             Don't have an Acount ? <Link to={'/register'}>
                                 <span
                                     className='text-gray-950 
                             font-bold underline cursor-pointer
-                             hover:text-green-950'>
-                                    Register Now!!
+                             hover:text-white'>
+                                     Register Now!!
                                 </span>
                             </Link>
                         </p>

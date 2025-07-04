@@ -81,7 +81,7 @@ const Register = () => {
                             onChange={handelInput}
                             placeholder='Enter Full Name'
                             required
-                            className='w-full input input-bordered h-10' />
+                            className='w-full input input-bordered h-10 text-white' />
                     </div>
                     <div>
                         <label className='label p-2' >
@@ -93,7 +93,7 @@ const Register = () => {
                             onChange={handelInput}
                             placeholder='Enter UserName'
                             required
-                            className='w-full input input-bordered h-10' />
+                            className='w-full input input-bordered h-10 text-white' />
                     </div>
                     <div>
                         <label className='label p-2' >
@@ -105,7 +105,7 @@ const Register = () => {
                             onChange={handelInput}
                             placeholder='Enter email'
                             required
-                            className='w-full input input-bordered h-10' />
+                            className='w-full input input-bordered h-10 text-white' />
                     </div>
                     <div>
                         <label className='label p-2' >
@@ -117,7 +117,7 @@ const Register = () => {
                             onChange={handelInput}
                             placeholder='Enter password'
                             required
-                            className='w-full input input-bordered h-10' />
+                            className='w-full input input-bordered h-10 text-white' />
                     </div>
                     <div>
                         <label className='label p-2' >
@@ -129,7 +129,7 @@ const Register = () => {
                             onChange={handelInput}
                             placeholder='Enter Confirm password'
                             required
-                            className='w-full input input-bordered h-10' />
+                            className='w-full input input-bordered h-10 text-white' />
                     </div>
 
                     <div
@@ -163,12 +163,12 @@ const Register = () => {
 
                 <div className='pt-2'>
                     <p className='text-sm font-semibold
-                         text-white'>
+                         text-gray-950'>
                         Dont have an Acount ? <Link to={'/login'}>
                             <span
                                 className='text-gray-950 
                             font-bold underline cursor-pointer
-                             hover:text-green-950'>
+                             hover:text-white'>
                                 Login Now!!
                             </span>
                         </Link>
