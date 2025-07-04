@@ -1,33 +1,32 @@
-import {Server} from 'socket.io';
+import { Server } from 'socket.io';
 import http from 'http';
-import express from 'express';
 
-const app = express();
+let io;
+const userSocketMap = {}; // Move outside so it's shared
 
-const server = http.createServer(app);
-const io = new Server(server,{
-    cors:{
-        origin:['http://localhost:5173'], 
-        methods:["GET","POST"]
-    }
-});
+const createSocketServer = (server) => {
+  io = new Server(server, {
+    cors: {
+      origin: ['http://localhost:5173'],
+      methods: ['GET', 'POST'],
+    },
+  });
 
-export const getReciverSocketId = (receverId)=>{
-    return userSocketmap[receverId];
+  io.on('connection', (socket) => {
+    const userId = socket.handshake.query.userId;
+    if (userId) userSocketMap[userId] = socket.id;
+    io.emit('getOnlineUsers', Object.keys(userSocketMap));
+
+    socket.on('disconnect', () => {
+      delete userSocketMap[userId];
+      io.emit('getOnlineUsers', Object.keys(userSocketMap));
+    });
+  });
 };
 
-const userSocketmap={}; //{userId,socketId}
-io.on('connection',(socket)=>{
-    const userId = socket.handshake.query.userId;
+// ✅ Export both
+export const getReceiverSocketId = (receiverId) => {
+  return userSocketMap[receiverId];
+};
 
-    // if(userId !== "undefine") userSocketmap[userId] = socket.id;
-    if (userId) userSocketmap[userId] = socket.id;
-    io.emit("getOnlineUsers",Object.keys(userSocketmap))
-
-    socket.on('disconnect',()=>{
-        delete userSocketmap[userId],
-        io.emit('getOnlineUsers',Object.keys(userSocketmap))
-    });
-});
-
-export {app , io , server}
+export { io, createSocketServer };
