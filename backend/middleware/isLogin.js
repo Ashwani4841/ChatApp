@@ -39,13 +39,13 @@ const isLogin = async (req, res, next) => {
       return res.status(401).send({ success: false, message: "Unauthorized: Invalid token" });
     }
 
-    // ✅ FIX: use await
+    //FIX: use await
     const user = await User.findById(decode.userId).select("-password");
     if (!user) {
       return res.status(404).send({ success: false, message: "User not found" });
     }
 
-    req.user = user; // ✅ Proper user object
+    req.user = user; //  Proper user object
     next();
   } catch (error) {
     console.log(`Error in isLogin middleware: ${error.message}`);

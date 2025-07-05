@@ -7,4 +7,4 @@ router.get('/search',isLogin,getUserBySearch);
 
 router.get('/currentchatters',isLogin,getCorrentChatters)
 
-export default router
+export default router   

@@ -20,6 +20,7 @@ try {
         })
     }
 
+    // save all message
     const newMessages = new Message({
         senderId,
         reciverId,
