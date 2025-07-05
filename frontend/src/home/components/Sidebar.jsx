@@ -19,19 +19,19 @@ const Sidebar = ({ onSelectUser }) => {
     const [loading, setLoading] = useState(false);
     const [selectedUserId, setSetSelectedUserId] = useState(null);
     const [newMessageUsers, setNewMessageUsers] = useState('');
-    const {messages , setMessage, selectedConversation ,  setSelectedConversation} = userConversation();
-    const { onlineUser , socket} = useSocketContext();
+    const { messages, setMessage, selectedConversation, setSelectedConversation } = userConversation();
+    const { onlineUser, socket } = useSocketContext();
 
-    const nowOnline = chatUser.map((user)=>(user._id));
+    const nowOnline = chatUser.map((user) => (user._id));
     //chats function
     const isOnline = nowOnline.map(userId => onlineUser.includes(userId));
 
-    useEffect(()=>{
-        socket?.on("newMessage",(newMessage)=>{
+    useEffect(() => {
+        socket?.on("newMessage", (newMessage) => {
             setNewMessageUsers(newMessage)
         })
-        return ()=> socket?.off("newMessage");
-    },[socket,messages])
+        return () => socket?.off("newMessage");
+    }, [socket, messages])
 
     //show user with u chatted
     useEffect(() => {
@@ -54,7 +54,7 @@ const Sidebar = ({ onSelectUser }) => {
         }
         chatUserHandler()
     }, [])
-    
+
     //show user from the search result
     const handelSearchSubmit = async (e) => {
         e.preventDefault();
@@ -155,7 +155,7 @@ const Sidebar = ({ onSelectUser }) => {
                                                 ${selectedUserId === user?._id ? 'bg-sky-500' : ''
                                             } `}>
                                         {/*Socket is Online*/}
-                                        <div className={`avatar ${isOnline[index] ? 'online':''}`}>
+                                        <div className={`avatar ${isOnline[index] ? 'online' : ''}`}>
                                             <div className="w-12 rounded-full">
                                                 <img src={user.profilepic} alt='user.img' />
                                             </div>
@@ -201,7 +201,7 @@ const Sidebar = ({ onSelectUser }) => {
                                                     } `}>
 
                                                 {/*Socket is Online*/}
-                                                <div className={`avatar ${isOnline[index] ? 'online':''}`}>
+                                                <div className={`avatar ${isOnline[index] ? 'online' : ''}`}>
                                                     <div className="w-12 rounded-full">
                                                         <img src={user.profilepic} alt='user.img' />
                                                     </div>
@@ -209,11 +209,11 @@ const Sidebar = ({ onSelectUser }) => {
                                                 <div className='flex flex-col flex-1'>
                                                     <p className='font-bold text-gray-950'>{user.username}</p>
                                                 </div>
-                                                    <div>
-                                                        { newMessageUsers.reciverId === authUser._id && newMessageUsers.senderId === user._id ?
-                                                    <div className="rounded-full bg-green-700 text-sm text-white px-[4px]">+1</div>:<></>
-                                                        }
-                                                    </div>
+                                                <div>
+                                                    {newMessageUsers.reciverId === authUser._id && newMessageUsers.senderId === user._id ?
+                                                        <div className="rounded-full bg-green-700 text-sm text-white px-[4px]">+1</div> : <></>
+                                                    }
+                                                </div>
                                             </div>
                                             <div className='divider divide-solid px-3 h-[1px]'></div>
                                         </div>
@@ -223,12 +223,22 @@ const Sidebar = ({ onSelectUser }) => {
                             )}
                         </div>
                     </div>
-                    <div className='mt-auto px-1 py-1 flex'>
+                    {/* <div className='mt-auto px-1 py-1 flex'>
                         <button onClick={handelLogOut} className='hover:bg-red-600  w-10 cursor-pointer hover:text-white rounded-lg'>
                             <BiLogOut size={25} />
                         </button>
-                        <p className='text-sm py-1'>Logout</p>
+                        <p className='text-sm py-1 text-white'>Logout</p>
+                    </div> */}
+                    <div className="mt-auto px-1 py-1 flex items-center gap-2">
+                        <button
+                            onClick={handelLogOut}
+                            className="w-10 cursor-pointer text-white hover:bg-red-600 hover:text-white rounded-lg"
+                        >
+                            <BiLogOut size={25} />
+                        </button>
+                        <p className="text-sm py-1 text-white">Logout</p>
                     </div>
+
                 </>
             )}
         </div>
