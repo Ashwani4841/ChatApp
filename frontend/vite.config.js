@@ -22,7 +22,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000', // your backend port
+        target: 'https://chatapp-r3il.onrender.com/', // your backend port
         changeOrigin: true,
       },
     },
