@@ -31,6 +31,5 @@ Mongoose
 
 JWT Authentication
 
-
 Link-
 https://chatapp-r3il.onrender.com
