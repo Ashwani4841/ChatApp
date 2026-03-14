@@ -25,9 +25,9 @@ Node.js
 Express.js
 Socket.IO
 
-MongoDB
+MongoDB-
 
-Mongoose
+Mongoose-
 
 JWT Authentication
 
