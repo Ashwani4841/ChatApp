@@ -2,7 +2,7 @@
 
 A real-time chat application built using the MERN Stack (MongoDB, Express.js, React.js, Node.js) with Socket.IO for instant messaging. This app allows users to register, log in, and chat with other users in real time.
 
-🚀 Features:-
+🚀 Features:--
 
 🔐 User Authentication (Signup & Login)
 💬 Real-time messaging using Socket.IO
